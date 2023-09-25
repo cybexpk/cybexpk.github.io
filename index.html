@@ -1,9 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Display External HTML Content</title>
+    <title>Display External HTML Content with JavaScript</title>
 </head>
 <body>
-    <iframe src="https://cybexpk.github.io/suspended/" width="100%" height="500"></iframe>
+    <div id="content"></div>
+    
+    <script>
+        // Use the fetch API to load the external HTML file
+        fetch('https://cybexpk.github.io/suspended/')
+            .then(response => response.text())
+            .then(data => {
+                // Insert the loaded content into the 'content' div
+                document.getElementById('content').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    </script>
 </body>
 </html>
